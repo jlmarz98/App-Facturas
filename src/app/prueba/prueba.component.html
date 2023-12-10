@@ -1,0 +1,62 @@
+
+
+
+   
+<div class="container">
+
+   <h2 style="text-align: center;">Agregue su pedido a la factura</h2>
+<div class="card"><div class="card-body"><div class="row">
+  <div class="col-lg-6">
+   <label for="" class="form-label">Productos</label>
+    <select name="miselect" class="form-select form-select-lg" [(ngModel)]="seleccionado">
+     <option selected>Seleccione.....</option>
+    <option [ngValue]="objeto" *ngFor="let objeto of lista">{{objeto.nombre}}</option>
+     
+    </select>
+
+  
+   
+ <strong> Producto:{{seleccionado?.nombre}}, Precio:{{seleccionado?.precio}} Stock:{{seleccionado?.stock}}</strong>
+</div>
+
+<div class="col-lg-6">
+   <label><h4>Ingrese la Cantidad</h4></label>
+   <div *ngIf="mayorQueelRestante" class="Text-center lg-3">
+      <span class="badge bg-danger testError">La cantidad ingresada es mayor que el stock</span>
+      </div>
+<br>
+<input type="button" value="++"  class="btn btn-info" (click)="cantidadMayor()" placeholder="++">
+{{cantidad}}
+<input type="button" value="--" class="btn btn-danger" (click)="cantidadMenor()" placeholder="--">
+</div></div></div></div>
+
+    <p><button class="btn btn-success" type="button" (click)="enviarSeleccionado(seleccionado?.stock)">Agregar Pedido a la Factura</button>
+</p>
+    <br>
+
+<div class="card">
+   <div class="card-title" style="text-align: center;"> <h2>Agregar Productos al Inventario</h2></div>
+   <div class="card-body">
+      <div class="row">
+         <div class="col-lg-4">
+            <label for="">Producto</label>
+            <br>
+            <input  value="ejemp.libreta" class="form-control"  type="text" [(ngModel)]="model.nombre" placeholder="ejemp.libreta">
+         </div>
+         <div class="col-lg-4">
+            <label>Precio</label>
+            <br>
+            <input   class="form-control"  type="text" [(ngModel)]="model.precio">
+         </div>
+         <div class="col-lg-4">
+            <label>Stock</label>
+            <br>
+            <input   class="form-control"  type="text" [(ngModel)]="model.stock">
+         </div>
+      </div>
+   </div>
+   
+</div>
+<button class="btn btn-primary" type="button"  (click)="enviarAlista()">Enviar Producto</button>
+</div>
+

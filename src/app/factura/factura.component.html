@@ -1,0 +1,38 @@
+
+
+<div class="table-responsive">
+    <table class="table table-primary" >
+        <thead >
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Producto</th>
+                <th scope="col">cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">stock</th>
+                <th scope="col">Importe</th>
+              <th scope="col">
+                <ul class="list-group list-group-flush">
+                  
+                <span class="badge rounded-pill bg-secondary"><h5><strong>Total:{{total|currency}}</strong></h5></span>
+          
+                   </ul></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let p of listpro; let i=index"> 
+                <td>{{i + 1}}</td>
+                <td >{{p.nombre|uppercase}} </td>
+                <td>{{p.cantidad}}</td>
+                <td>{{p.precio}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.importe}}</td>
+               <td><button class="btn btn-danger" (click)="eliminar(i, p.importe)" >Eliminar</button></td>
+
+                
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+
